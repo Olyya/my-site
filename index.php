@@ -4,8 +4,8 @@
 	<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
 	<title>Melnichuk Ola</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/mycss.css">
+	<link href="/web/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/web/css/mycss.css">
 	<link href='http://fonts.googleapis.com/css?family=Arizonia' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -15,7 +15,7 @@
 <body>
 	<div class="container">
 		<div class="container" id="header">
-			<img src="img/Detective_Girl.png" class="col-lg-2">
+			<img src="/web/img/Detective_Girl.png" class="col-lg-2">
 			<span>My presentition site</span>
 		</div>
 		<ul class="nav nav-tabs col-lg-6">
@@ -45,12 +45,45 @@
 			</div>
 			<div id="resume" class="tab-pane fade">
 				<h3>Resume</h3>
-				<a href="others/resume.pdf" download>You can download here</a></br>
-				<a href="others/resume.pdf">View resume here</a>
-				<script src="viewer/web/pdf.js"></script>
+				<a href="/web/others/resume.pdf" download>You can download here</a></br>		
+				<script src="/web/viewer/web/compatibility.js"></script>
+				<script src="/web/viewer/build/pdf.js"></script>
+				<script type="text/javascript">
+						//PDFJS.getDocument("/web/others/resume.pdf");
+					var loadingTask = PDFJS.getDocument("/web/others/resume.pdf");
+					loadingTask.promise.then(function(pdf) {
+					console.log('PDF loaded');
+				
+					// Fetch the first page
+					var pageNumber = 1;
+					pdf.getPage(pageNumber).then(function(page) {
+					console.log('Page loaded');
+				
+					var scale = 1.5;
+					var viewport = page.getViewport(scale);
 
+					// Prepare canvas using PDF page dimensions
+					var canvas = document.getElementById('the-canvas');
+					var context = canvas.getContext('2d');
+					canvas.height = viewport.height;
+					canvas.width = viewport.width;
 
-
+					// Render PDF page into canvas context
+					var renderContext = {
+						canvasContext: context,
+						viewport: viewport
+					};
+					var renderTask = page.render(renderContext);
+					renderTask.then(function () {
+					console.log('Page rendered');
+					});
+				  });
+				}, function (reason) {
+				  // PDF loading error
+				  console.error(reason);
+				});
+				</script>
+				<canvas id="the-canvas"></canvas>
 			</div>
 			<div id="purposes" class="tab-pane fade">
 				<h3>My purposes&achievement</h3>
