@@ -45,12 +45,12 @@
 			</div>
 			<div id="resume" class="tab-pane fade">
 				<h3>Resume</h3>
-				<a href="/web/others/resume.pdf" download>You can download here</a></br>		
+				<a href="/web/others/Resume.pdf" download>You can download here</a></br>		
 				<script src="/web/viewer/web/compatibility.js"></script>
 				<script src="/web/viewer/build/pdf.js"></script>
 				<script type="text/javascript">
 						//PDFJS.getDocument("/web/others/resume.pdf");
-					var loadingTask = PDFJS.getDocument("/web/others/resume.pdf");
+					var loadingTask = PDFJS.getDocument("/web/others/Resume.pdf");
 					loadingTask.promise.then(function(pdf) {
 					console.log('PDF loaded');
 				
