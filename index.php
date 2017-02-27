@@ -97,8 +97,8 @@
 				<p><h3>My aims for this year:</h3>
 					<ul>
 						<li>To pass IELTS exam;</li>
-						<li>To learn at list one of programing language;</li>
-						<li>To read at list 10 books</li>
+						<li>To learn at least one of programing language;</li>
+						<li>To read at least 10 books</li>
 					</ul>
 				</p>
 			</div>
