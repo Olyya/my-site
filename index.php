@@ -16,7 +16,7 @@
 	<div class="container">
 		<div class="container" id="header">
 			<img src="/web/img/Detective_Girl.png" class="col-lg-2">
-			<span>My presentition site</span>
+			<span>My presentation site</span>
 		</div>
 		<ul class="nav nav-tabs col-lg-6">
 			<li role="presentation"  class="active"><a data-toggle="tab" href="#home">Home</a></li>
